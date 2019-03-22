@@ -1,0 +1,5 @@
+resources/names.csv
+resources/selected_names.csv
+__pycache__/
+.idea/
+db.sqlite3

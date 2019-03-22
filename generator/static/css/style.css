@@ -1,0 +1,29 @@
+#names-list, #selected-names-list {
+    margin-top: 50px;
+    border-color: black;
+    border-style: ridge;
+    width: 30%;
+    height: 600px;
+    overflow-y: scroll;
+}
+
+#names-list {
+    margin-left: 5%;
+    float: left;
+}
+
+#generate-names {
+    float: left;
+    width: 20%;
+    margin-left: 5%;
+    margin-top: 300px;
+}
+
+#selected-names-list {
+    float: right;
+    margin-right: 5%;
+}
+
+p {
+    margin: 5px;
+}

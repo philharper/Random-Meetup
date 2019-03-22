@@ -1,0 +1,27 @@
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>
+            function generateNames() {
+                $.get('names', function (data) {
+                    location.reload();
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <div id="names-list">
+            {% for name in names_list %}
+                <p>{{ name }}</p>
+            {% endfor %}
+        </div>
+        <button id="generate-names" onclick="generateNames()">Generate Names</button>
+        <div id="selected-names-list">
+            {% for name in selected_names_list %}
+                <p>{{ name }}</p>
+            {% endfor %}
+        </div>
+    </body>
+</html>
