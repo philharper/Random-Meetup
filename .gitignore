@@ -1,5 +1,6 @@
 resources/names.csv
 resources/selected_names.csv
+resources/email.txt
 __pycache__/
 .idea/
 db.sqlite3
