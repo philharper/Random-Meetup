@@ -12,11 +12,22 @@
     float: left;
 }
 
-#generate-names {
-    float: left;
+#button-group {
     width: 20%;
+    float: left;
     margin-left: 5%;
+}
+
+button {
+    width: 100%;
+}
+
+#generate-names {
     margin-top: 300px;
+}
+
+#download-email {
+    margin-top: 50px;
 }
 
 #selected-names-list {

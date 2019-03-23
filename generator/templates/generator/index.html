@@ -9,6 +9,12 @@
                     location.reload();
                 });
             }
+
+            function downloadEmail() {
+                $.get('download_email', function (data) {
+                    location.reload();
+                });
+            }
         </script>
     </head>
     <body>
@@ -17,7 +23,10 @@
                 <p>{{ name }}</p>
             {% endfor %}
         </div>
-        <button id="generate-names" onclick="generateNames()">Generate Names</button>
+        <div id="button-group">
+            <button id="generate-names" onclick="generateNames()">Generate Names</button>
+            <button id="download-email" onclick="downloadEmail()">Download Email</button>
+        </div>
         <div id="selected-names-list">
             {% for name in selected_names_list %}
                 <p>{{ name }}</p>
