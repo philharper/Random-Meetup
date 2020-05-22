@@ -29,7 +29,7 @@ def generate_names(request):
     pre_selected_names = get_list_of_names(SELECTED_NAMES_CSV)
     add_extra_names(names_list, pre_selected_names)
     selected_names = generate_list_of_selected_names(names_list, pre_selected_names)
-    generate_email(selected_names)
+    email = generate_email(selected_names)
 
     if len(names_list) == 0:
         open(SELECTED_NAMES_CSV, 'w').close()
@@ -38,7 +38,7 @@ def generate_names(request):
         write_list_to_file(pre_selected_names, SELECTED_NAMES_CSV)
         write_list_to_file(names_list, NAMES_CSV)
 
-    return HttpResponse()
+    return HttpResponse(email)
 
 
 def add_extra_names(names_list, pre_selected_names):
@@ -72,6 +72,7 @@ def generate_email(selected_names):
     email_file = open(RESOURCES_EMAIL_TXT, "w+")
     email_file.write(email)
     email_file.close()
+    return email
 
 
 def write_list_to_file(pre_selected_names, resource):

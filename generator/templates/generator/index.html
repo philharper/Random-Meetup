@@ -6,6 +6,8 @@
         <script>
             function generateNames() {
                 $.get('names', function (data) {
+                    const myStorage = window.localStorage;
+                    myStorage.setItem('email', data);
                     location.reload();
                 });
             }
@@ -14,6 +16,11 @@
                 $.get('download_email', function (data) {
                     location.reload();
                 });
+            }
+
+            window.onload = function() {
+                const myStorage = window.localStorage;
+                document.getElementById('generator-output').innerText = myStorage.getItem('email')
             }
         </script>
     </head>
@@ -26,6 +33,10 @@
         <div id="button-group">
             <button id="generate-names" onclick="generateNames()">Generate Names</button>
             <button id="download-email" onclick="downloadEmail()">Download Email</button>
+
+            <div id="generator-output">
+
+            </div>
         </div>
         <div id="selected-names-list">
             {% for name in selected_names_list %}

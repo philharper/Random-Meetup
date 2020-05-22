@@ -35,6 +35,10 @@ button {
     margin-right: 5%;
 }
 
+#generator-output {
+    margin-top: 15px;
+}
+
 p {
     margin: 5px;
 }
