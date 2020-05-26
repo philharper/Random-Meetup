@@ -42,14 +42,15 @@ def generate_names(request):
 
 
 def add_extra_names(names_list, pre_selected_names):
-    while len(names_list) < 4:
+    while len(names_list) < 2:
         names_list.append(random.choice(pre_selected_names))
 
 
 def generate_list_of_selected_names(names_list, pre_selected_names):
     selected_names = []
+    names_list_size = len(names_list)
     i = 0
-    while i < 4:
+    while i < names_list_size:
         i += 1
         name = random.choice(names_list)
         selected_names.append(name)
@@ -68,12 +69,28 @@ def get_list_of_names(resource):
 
 
 def generate_email(selected_names):
-    email = open(EMAIL_TEMPLATE_TXT, "r").read().format(selected_names[0], selected_names[1], selected_names[2], selected_names[3])
+    names_output = generate_names_output(selected_names)
+    email = open(EMAIL_TEMPLATE_TXT, "r").read().format(names_output)
     email_file = open(RESOURCES_EMAIL_TXT, "w+")
     email_file.write(email)
     email_file.close()
     return email
 
+
+def generate_names_output(selected_names):
+    names_output = ''
+    i = 0
+    while i < len(selected_names):
+        names_output += selected_names[i] + ' & '
+        i += 1
+        if i == len(selected_names):
+            extra_name = random.choice(selected_names)
+            selected_names.append(extra_name)
+            print (extra_name)
+        names_output += selected_names[i] + '\r\n'
+        i += 1
+
+    return names_output
 
 def write_list_to_file(pre_selected_names, resource):
     open(resource, 'w').close()

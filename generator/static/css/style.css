@@ -2,7 +2,7 @@
     margin-top: 50px;
     border-color: black;
     border-style: ridge;
-    width: 30%;
+    width: 25%;
     height: 600px;
     overflow-y: scroll;
 }
@@ -13,7 +13,7 @@
 }
 
 #button-group {
-    width: 20%;
+    width: 30%;
     float: left;
     margin-left: 5%;
 }
