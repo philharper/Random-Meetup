@@ -4,3 +4,4 @@ resources/email.txt
 __pycache__/
 .idea/
 db.sqlite3
+staticfiles/
