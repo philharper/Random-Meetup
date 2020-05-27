@@ -25,7 +25,7 @@ SECRET_KEY = '=6))@_&0&fwh%!+^x_=fk7m&fgp%l#oudyr-0=h!e%xq0pbp8x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['random-meetup.herokuapp.com']
 
 
 # Application definition
