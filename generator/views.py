@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 import csv
 import random
+from datetime import datetime
 
 RESOURCES_EMAIL_TXT = "resources/email.txt"
 EMAIL_TEMPLATE_TXT = "resources/email_template.txt"
@@ -36,7 +37,7 @@ def generate_names(request):
         write_list_to_file(list(dict.fromkeys(pre_selected_names)), NAMES_CSV)
     else:
         write_list_to_file(pre_selected_names, SELECTED_NAMES_CSV)
-        write_list_to_file(names_list, NAMES_CSV)
+        write_list_to_file(selected_names, NAMES_CSV)
 
     return HttpResponse(email)
 
@@ -70,7 +71,7 @@ def get_list_of_names(resource):
 
 def generate_email(selected_names):
     names_output = generate_names_output(selected_names)
-    email = open(EMAIL_TEMPLATE_TXT, "r").read().format(names_output)
+    email = open(EMAIL_TEMPLATE_TXT, "r").read().format(datetime.today().strftime('%d-%m-%Y'), names_output)
     email_file = open(RESOURCES_EMAIL_TXT, "w+")
     email_file.write(email)
     email_file.close()
