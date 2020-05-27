@@ -25,7 +25,7 @@ SECRET_KEY = '=6))@_&0&fwh%!+^x_=fk7m&fgp%l#oudyr-0=h!e%xq0pbp8x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['random-meetup.herokuapp.com']
+ALLOWED_HOSTS = ['random-meetup.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -118,7 +118,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/generator/static/'
+STATIC_URL = '/staticfiles/'
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
