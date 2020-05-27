@@ -1,8 +1,53 @@
 {% load static %}
 <html>
     <head>
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <style>
+            #names-list, #selected-names-list {
+                margin-top: 50px;
+                border-color: black;
+                border-style: ridge;
+                width: 25%;
+                height: 600px;
+                overflow-y: scroll;
+            }
+
+            #names-list {
+                margin-left: 5%;
+                float: left;
+            }
+
+            #button-group {
+                width: 30%;
+                float: left;
+                margin-left: 5%;
+            }
+
+            button {
+                width: 100%;
+            }
+
+            #generate-names {
+                margin-top: 100px;
+            }
+
+            #download-email {
+                margin-top: 50px;
+            }
+
+            #selected-names-list {
+                float: right;
+                margin-right: 5%;
+            }
+
+            #generator-output {
+                margin-top: 15px;
+            }
+
+            p {
+                margin: 5px;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>
             function generateNames() {
                 $.get('names', function (data) {
