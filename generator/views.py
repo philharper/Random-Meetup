@@ -7,7 +7,7 @@ from datetime import datetime
 RESOURCES_EMAIL_TXT = "resources/email.txt"
 EMAIL_TEMPLATE_TXT = "resources/email_template.txt"
 SELECTED_NAMES_CSV = "resources/selected_names.csv"
-NAMES_CSV = "resources/names.csv"
+NAMES_CSV = "resources/test_names.csv"
 
 
 def index(request):
