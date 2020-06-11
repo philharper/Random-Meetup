@@ -50,7 +50,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>
             function generateNames() {
-                $.get('names', function (data) {
+                const names = $('#names-list').val().split('\n').join(',');
+                $.get('names/' + names, function (data) {
                     const myStorage = window.localStorage;
                     myStorage.setItem('email', data);
                     location.reload();
@@ -70,11 +71,7 @@
         </script>
     </head>
     <body>
-        <div id="names-list">
-            {% for name in names_list %}
-                <p>{{ name }}</p>
-            {% endfor %}
-        </div>
+        <textarea id="names-list" ></textarea>
         <div id="button-group">
             <button id="generate-names" onclick="generateNames()">Generate Names</button>
             <button id="download-email" onclick="downloadEmail()">Download Email</button>

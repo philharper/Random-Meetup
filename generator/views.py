@@ -11,26 +11,22 @@ NAMES_CSV = "resources/test_names.csv"
 
 
 def index(request):
-    names_list = get_list_of_names(NAMES_CSV)
     selected_names_list = get_list_of_names(SELECTED_NAMES_CSV)
 
-    names_list.sort()
     selected_names_list.sort()
 
     context = {
-        'names_list': names_list,
         'selected_names_list': selected_names_list,
     }
     return render(request, 'generator/index.html', context)
 
 
-def generate_names(request):
-
-    names_list = get_list_of_names(NAMES_CSV)
+def generate_names(request, names):
+    names_list = names.split(',')
     pre_selected_names = get_list_of_names(SELECTED_NAMES_CSV)
     add_extra_names(names_list, pre_selected_names)
     selected_names = generate_list_of_selected_names(names_list, pre_selected_names)
-    email = generate_email(selected_names)
+    email = generate_names_output(selected_names)
 
     if len(names_list) == 0:
         open(SELECTED_NAMES_CSV, 'w').close()
@@ -87,11 +83,11 @@ def generate_names_output(selected_names):
         if i == len(selected_names):
             extra_name = random.choice(selected_names)
             selected_names.append(extra_name)
-            print (extra_name)
         names_output += selected_names[i] + '\r\n'
         i += 1
 
     return names_output
+
 
 def write_list_to_file(pre_selected_names, resource):
     open(resource, 'w').close()
