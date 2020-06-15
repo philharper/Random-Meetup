@@ -4,8 +4,6 @@
         <style>
             #names-list, #selected-names-list {
                 margin-top: 50px;
-                border-color: black;
-                border-style: ridge;
                 width: 40%;
                 height: 600px;
                 overflow-y: scroll;
@@ -28,6 +26,8 @@
 
             #generate-names {
                 margin-top: 100px;
+                width: 200px;
+                text-align: center;
             }
 
             #download-email {
@@ -52,11 +52,11 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>
             function generateNames() {
-                const names = $('#names-list').val().split('\n').join(',');
-                $.get('names/' + names, function (data) {
-                    const myStorage = window.localStorage;
+                const myStorage = window.localStorage;
+                const names = $('#names-list').val().split('\n');
+                myStorage.setItem('names', $('#names-list').val());
+                $.get('names/' + names.join(','), function (data) {
                     myStorage.setItem('email', data);
-                    myStorage.setItem('names', $('#names-list').val());''
                     location.reload();
                 });
             }
@@ -75,9 +75,9 @@
         </script>
     </head>
     <body>
-        <textarea id="names-list" placeholder="Seperate names with a new line or commas"></textarea>
-        <div id="button-group">
-            <button id="generate-names" onclick="generateNames()">Generate Names</button>
+        <textarea id="names-list" class="form-control" placeholder="Separate names with a new line or commas"></textarea>
+        <div id="button-group" class="text-center">
+            <button id="generate-names" class="btn btn-primary" onclick="generateNames()">Generate Names</button>
 <!--            <button id="download-email" onclick="downloadEmail()">Download Email</button>-->
 
             <div id="generator-output">
