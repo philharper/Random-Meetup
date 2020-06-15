@@ -6,7 +6,7 @@
                 margin-top: 50px;
                 border-color: black;
                 border-style: ridge;
-                width: 25%;
+                width: 40%;
                 height: 600px;
                 overflow-y: scroll;
             }
@@ -17,7 +17,7 @@
             }
 
             #button-group {
-                width: 30%;
+                width: 40%;
                 float: left;
                 margin-left: 5%;
             }
@@ -78,16 +78,16 @@
         <textarea id="names-list" ></textarea>
         <div id="button-group">
             <button id="generate-names" onclick="generateNames()">Generate Names</button>
-            <button id="download-email" onclick="downloadEmail()">Download Email</button>
+<!--            <button id="download-email" onclick="downloadEmail()">Download Email</button>-->
 
             <div id="generator-output">
 
             </div>
         </div>
-        <div id="selected-names-list">
-            {% for name in selected_names_list %}
-                <p>{{ name }}</p>
-            {% endfor %}
-        </div>
+<!--        <div id="selected-names-list">-->
+<!--            {% for name in selected_names_list %}-->
+<!--                <p>{{ name }}</p>-->
+<!--            {% endfor %}-->
+<!--        </div>-->
     </body>
 </html>
